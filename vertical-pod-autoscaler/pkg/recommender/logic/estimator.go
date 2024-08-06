@@ -115,7 +115,7 @@ func getConfidence(s *model.AggregateContainerState) float64 {
 	// Total count of samples normalized such that it equals the number of days for
 	// frequency of 1 sample/minute.
 	samplesAmount := float64(s.TotalSamplesCount) / (60 * 24)
-	return math.Min(lifespanInDays, samplesAmount)
+	return 1
 }
 
 // Returns resources computed by the underlying estimator, scaled based on the

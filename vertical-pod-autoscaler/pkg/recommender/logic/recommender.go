@@ -126,7 +126,7 @@ func CreatePodResourceRecommender() PodResourceRecommender {
 	// 12h history    : *3    (force pod eviction if the request is > 3 * upper bound)
 	// 24h history    : *2
 	// 1 week history : *1.14
-	upperBoundEstimator = WithConfidenceMultiplier(1.0, 1.0, upperBoundEstimator)
+	upperBoundEstimator = WithConfidenceMultiplier(0.14, 1.0, upperBoundEstimator)
 
 	// Apply confidence multiplier to the lower bound estimator. This means
 	// that the updater will be less eager to evict pods with short history
@@ -140,7 +140,7 @@ func CreatePodResourceRecommender() PodResourceRecommender {
 	// 5m history   : *0.6 (force pod eviction if the request is < 0.6 * lower bound)
 	// 30m history  : *0.9
 	// 60m history  : *0.95
-	lowerBoundEstimator = WithConfidenceMultiplier(0.001, -2.0, lowerBoundEstimator)
+	lowerBoundEstimator = WithConfidenceMultiplier(-0.05, 1.0, lowerBoundEstimator)
 
 	return &podResourceRecommender{
 		targetEstimator,
