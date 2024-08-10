@@ -1,7 +1,7 @@
 all: build
 
-TAG?=dev
-REGISTRY?=staging-k8s.gcr.io
+TAG?=latest
+REGISTRY?=docker.io/hamonangann
 FLAGS=
 TEST_ENVVAR=LD_FLAGS=-s GO111MODULE=on
 ENVVAR=CGO_ENABLED=0 $(TEST_ENVVAR)

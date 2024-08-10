@@ -111,10 +111,10 @@ func (e *percentileEstimator) GetResourceEstimation(s *model.AggregateContainerS
 // of samples and the time between the first and the last sample.
 func getConfidence(s *model.AggregateContainerState) float64 {
 	// Distance between the first and the last observed sample time, measured in days.
-	lifespanInDays := float64(s.LastSampleStart.Sub(s.FirstSampleStart)) / float64(time.Hour*24)
+	// lifespanInDays := float64(s.LastSampleStart.Sub(s.FirstSampleStart)) / float64(time.Hour*24)
 	// Total count of samples normalized such that it equals the number of days for
 	// frequency of 1 sample/minute.
-	samplesAmount := float64(s.TotalSamplesCount) / (60 * 24)
+	// samplesAmount := float64(s.TotalSamplesCount) / (60 * 24)
 	return 1
 }
 
